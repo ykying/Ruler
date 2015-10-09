@@ -12,6 +12,7 @@
 		3CDD8B6F1BC775BB00D61EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CDD8B6D1BC775BB00D61EFD /* Main.storyboard */; };
 		3CDD8B711BC775BB00D61EFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CDD8B701BC775BB00D61EFD /* Assets.xcassets */; };
 		3CDD8B741BC775BB00D61EFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CDD8B721BC775BB00D61EFD /* LaunchScreen.storyboard */; };
+		3CDD8B7C1BC775D100D61EFD /* RulerScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD8B7B1BC775D100D61EFD /* RulerScrollView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3CDD8B701BC775BB00D61EFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CDD8B731BC775BB00D61EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CDD8B751BC775BB00D61EFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CDD8B7B1BC775D100D61EFD /* RulerScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				3CDD8B691BC775BB00D61EFD /* AppDelegate.swift */,
 				3CDD8B6B1BC775BB00D61EFD /* ViewController.swift */,
+				3CDD8B7B1BC775D100D61EFD /* RulerScrollView.swift */,
 				3CDD8B6D1BC775BB00D61EFD /* Main.storyboard */,
 				3CDD8B701BC775BB00D61EFD /* Assets.xcassets */,
 				3CDD8B721BC775BB00D61EFD /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CDD8B6C1BC775BB00D61EFD /* ViewController.swift in Sources */,
+				3CDD8B7C1BC775D100D61EFD /* RulerScrollView.swift in Sources */,
 				3CDD8B6A1BC775BB00D61EFD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
