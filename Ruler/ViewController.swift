@@ -17,8 +17,8 @@ class ViewController: UIViewController, RulerScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rulerScrollViewV.initRuler(self, imageNameForUnit: "unit", rulerAutoAlignToCloseInt: true)
-        rulerScrollViewH.initRuler(self, imageNameForUnit: "unith", rulerDirection: RulerDirection.Horizontal, rulerTotalUnitCount: 100, rulerUnitStartNumber: 50, rulerUnitString: "kg")
+        rulerScrollViewV.initRuler(self, imageNameForUnit: "unit", rulerInitUnitPosition: 123)
+        rulerScrollViewH.initRuler(self, imageNameForUnit: "unith", rulerDirection: RulerDirection.Horizontal, rulerTotalUnitCount: 180, rulerUnitStartNumber: 20, rulerUnitString: "kg", rulerInitUnitPosition: 123)
         
         lblCurrentVValue.text = "100 cm"
         lblCurrentHValue.text = "50 kg"

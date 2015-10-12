@@ -26,6 +26,7 @@ class RulerScrollView: UIScrollView, UIScrollViewDelegate {
     private var imageNameForOneUnit: String = "unit"
     private var unitString: String = "CM"
     private var autoAlignToCloseInt: Bool = false
+    private var initUnitPosition: Int = 150
     //Options
     
     
@@ -37,12 +38,13 @@ class RulerScrollView: UIScrollView, UIScrollViewDelegate {
         super.awakeFromNib()
     }
     
-    func initRuler(rulerDelegate: RulerScrollViewDelegate, imageNameForUnit: String, rulerDirection: RulerDirection=RulerDirection.Vertical, rulerTotalUnitCount: Int=100, rulerUnitStartNumber: Int=100, rulerUnitString: String="cm", rulerAutoAlignToCloseInt: Bool = false){
+    func initRuler(rulerDelegate: RulerScrollViewDelegate, imageNameForUnit: String, rulerDirection: RulerDirection=RulerDirection.Vertical, rulerTotalUnitCount: Int=100, rulerUnitStartNumber: Int=100, rulerInitUnitPosition: Int=150, rulerUnitString: String="cm", rulerAutoAlignToCloseInt: Bool = false){
         
         rulerScrollViewDelegate = rulerDelegate
         direction = rulerDirection
         totalUnitCount = rulerTotalUnitCount
         unitStartNumber = rulerUnitStartNumber
+        initUnitPosition = rulerInitUnitPosition
         unitString = rulerUnitString
         imageNameForOneUnit = imageNameForUnit
         autoAlignToCloseInt = rulerAutoAlignToCloseInt
@@ -74,8 +76,9 @@ class RulerScrollView: UIScrollView, UIScrollViewDelegate {
         
         
         if let _ = UIImage(named: imageNameForOneUnit){ //Check Image Exists
-            for (var i=0; i<totalUnitCount; i++){
+            for (var i=0; i<=totalUnitCount; i++){
                 if let img = UIImage(named: imageNameForOneUnit){ //Build Image & Label Array
+                    
                     let imgv = UIImageView(image: img)
                     let lbl = UILabel(frame: CGRectMake(0, 0, labelWidth, labelHeight))
                     lbl.backgroundColor = UIColor.clearColor()
@@ -94,17 +97,29 @@ class RulerScrollView: UIScrollView, UIScrollViewDelegate {
                         lbl.center = CGPointMake(coor, lblCenterPoint)
                     }
                     lbl.text = String(format: "%d %@", (unitStartNumber+i), unitString)
-                    
-                    self.addSubview(imgv)
+                    if i != totalUnitCount { //Last one no need to add image
+                        self.addSubview(imgv)
+                    }
                     self.addSubview(lbl)
-                    
                 }
             }
+            
+            var startPos = initUnitPosition - unitStartNumber
+            
+            if startPos < 0{
+                startPos = 0
+            }
+            
+            
             if direction == .Vertical {
                 self.contentSize = CGSizeMake(CGRectGetWidth(self.frame), CGFloat(totalUnitCount) * unitEdge + CGRectGetHeight(self.frame))
+                self.setContentOffset(CGPointMake(0, CGFloat(startPos) * unitEdge), animated: false)
             } else {
                 self.contentSize = CGSizeMake(CGFloat(totalUnitCount) * unitEdge + CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))
+                self.setContentOffset(CGPointMake(CGFloat(startPos) * unitEdge, 0), animated: false)
             }
+            
+            
             
         }
         
